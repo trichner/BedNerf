@@ -51,8 +51,14 @@ public class BedListener implements Listener {
 		// has a bed an it's ready
 		if (isReady(bed)) {
 			// Bed is ready, set spawn
-			sendMessage(player, messages.getDeathMessageBed());
-			player.setBedSpawnLocation(bed.getLocation(), true); // maybe we have to force the spawn location
+			player.setBedSpawnLocation(bed.getLocation());
+			if(player.getBedSpawnLocation()==null){
+				// wont delete bed, we'll stay fair
+				sendMessage(player,messages.getDeathMessageBedObstructed());
+			}else{
+				// spawn at bed
+				sendMessage(player, messages.getDeathMessageBed());
+			}
 		} else {
 			sendMessage(player, messages.getDeathMessageNoBed());
 			player.setBedSpawnLocation(null);

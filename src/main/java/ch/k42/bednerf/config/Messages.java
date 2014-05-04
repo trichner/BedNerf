@@ -14,10 +14,11 @@ public class Messages {
 	private String respawnMessageNoBed;
 	private String deathMessageBed;
 	private String deathMessageNoBed;
+	private String deathMessageBedObstructed;
 
 	public Messages(String spawnSetMessage, String spawnNotSetMessage, String bedClickMessage,
-			String bedClickMessageRep, String respawnMessageBed, String respawnMessageNoBed, String deathMessageBed,
-			String deathMessageNoBed) {
+			String bedClickMessageRep, String respawnMessageBed, String respawnMessageNoBed,
+			String deathMessageBed, String deathMessageNoBed, String deathMessageBedObstructed) {
 		this.spawnSetMessage = spawnSetMessage;
 		this.spawnNotSetMessage = spawnNotSetMessage;
 		this.bedClickMessage = bedClickMessage;
@@ -26,6 +27,11 @@ public class Messages {
 		this.respawnMessageNoBed = respawnMessageNoBed;
 		this.deathMessageBed = deathMessageBed;
 		this.deathMessageNoBed = deathMessageNoBed;
+		this.deathMessageBedObstructed = deathMessageBedObstructed;
+	}
+
+	public String getDeathMessageBedObstructed() {
+		return deathMessageBedObstructed;
 	}
 
 	public String getSpawnNotSetMessage() {

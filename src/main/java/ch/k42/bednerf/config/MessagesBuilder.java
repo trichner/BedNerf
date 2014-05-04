@@ -9,6 +9,7 @@ public class MessagesBuilder {
 	private String respawnMessageNoBed;
 	private String deathMessageBed;
 	private String deathMessageNoBed;
+	private String deathMessageBedObstructed;
 
 	public MessagesBuilder setSpawnSetMessage(String spawnSetMessage) {
 		this.spawnSetMessage = spawnSetMessage;
@@ -50,8 +51,13 @@ public class MessagesBuilder {
 		return this;
 	}
 
+	public MessagesBuilder setDeathMessageBedObstructed(String deathMessageBedObstructed) {
+		this.deathMessageBedObstructed = deathMessageBedObstructed;
+		return this;
+	}
+
 	public Messages createMessages() {
-		return new Messages(spawnSetMessage, spawnNotSetMessage, bedClickMessage, bedClickMessageRep,
-				respawnMessageBed, respawnMessageNoBed, deathMessageBed, deathMessageNoBed);
+		return new Messages(spawnSetMessage, spawnNotSetMessage, bedClickMessage, bedClickMessageRep, respawnMessageBed,
+				respawnMessageNoBed, deathMessageBed, deathMessageNoBed, deathMessageBedObstructed);
 	}
 }

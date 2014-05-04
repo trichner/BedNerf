@@ -19,6 +19,7 @@ public class BedNerfConfig {
 
 	private static final String KEY_MSGDEATHBED = MSGS.concat("deathMessageBed");
 	private static final String KEY_MSGDEATHNOBED = MSGS.concat("deathMessageNoBed");
+	private static final String KEY_MSGDEATHBEDOB = MSGS.concat("deathMessageBedObstructed");
 
 	private static final String KEY_MSGSPAWNBED = MSGS.concat("respawnMessageBed");
 	private static final String KEY_MSGSPAWNNOBED = MSGS.concat("respawnMessageNoBed");
@@ -40,13 +41,17 @@ public class BedNerfConfig {
 		int consecutive = config.getInt(KEY_CONSECUTIVECOOLDOWN) * 1000;
 		cooldowns = new Cooldowns(initial, consecutive);
 
-		MessagesBuilder builder = new MessagesBuilder().setBedClickMessage(readMessage(KEY_MSGCLICKBED))
+		MessagesBuilder builder = new MessagesBuilder()
+				.setBedClickMessage(readMessage(KEY_MSGCLICKBED))
 				.setBedClickMessageRep(readMessage(KEY_MSGCLICKBEDREP))
-				.setDeathMessageBed(readMessage(KEY_MSGDEATHBED)).setDeathMessageNoBed(readMessage(KEY_MSGDEATHNOBED))
+				.setDeathMessageBed(readMessage(KEY_MSGDEATHBED))
+				.setDeathMessageNoBed(readMessage(KEY_MSGDEATHNOBED))
 				.setRespawnMessageBed(readMessage(KEY_MSGSPAWNBED))
 				.setRespawnMessageNoBed(readMessage(KEY_MSGSPAWNNOBED))
 				.setSpawnNotSetMessage(readMessage(KEY_MSGSPAWNNOTSET))
-				.setSpawnSetMessage(readMessage(KEY_MSGSPAWNSET));
+				.setSpawnSetMessage(readMessage(KEY_MSGSPAWNSET))
+				.setDeathMessageBedObstructed(readMessage(KEY_MSGDEATHBEDOB));
+
 		messages = builder.createMessages();
 	}
 
