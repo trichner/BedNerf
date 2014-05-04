@@ -1,0 +1,19 @@
+
+messages:    #Use & for color codes
+     spawnNotSetMessage: "&7Your bed could not be set, is it still there?"
+     spawnSetMessage: "&7Your spawn was set to your bed."
+     # Use %d to insert time in minutes
+     bedClickMessage: "&7Your spawn will be set to this bed in %d minutes  ... If it still exists then."
+     bedClickMessageRep: "&7Your spawn is already set to this bed."
+     deathMessageBed: "&7You will wake up in your bed, was this all a dream?"
+     deathMessageNoBed: "&7There was no bed ready for you."
+     # Use %d to insert time in minutes
+     respawnMessageBed: "&7Good Morning! Your bed will again be ready in %d minutes."
+     respawnMessageNoBed: "&7You might want to find a bed. Good luck!"
+
+cooldowns: # Cooldown in seconds
+    initial: 180
+    consecutive: 60
+
+
+

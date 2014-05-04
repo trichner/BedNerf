@@ -1,0 +1,11 @@
+name: BedNerf
+main: ch.k42.bednerf.BedNerfPlugin
+version: ${project.version}
+load: startup
+authors: [AthmosPrime, trichner]
+website: k42.ch
+description: Nerfs minecraft vanilla beds
+softdepend: []
+loadbefore: []
+database: true
+prefix: BedNerf
