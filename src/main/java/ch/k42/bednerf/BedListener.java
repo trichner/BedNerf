@@ -1,6 +1,6 @@
 package ch.k42.bednerf;
 
-import java.util.Set;
+import java.util.List;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -11,11 +11,10 @@ import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
-
-import com.google.common.collect.ImmutableSet;
 
 import ch.k42.bednerf.config.Cooldowns;
 import ch.k42.bednerf.config.Messages;
@@ -28,7 +27,6 @@ import ch.k42.bednerf.config.Messages;
 public class BedListener implements Listener{
 
 	private static final int TICKRATE = 20;
-	private static final Set<Material> BED_BLOCKS = ImmutableSet.of(Material.BED, Material.BED_BLOCK);
 
 	private PlayerBedDAO dao;
 	private BedNerfPlugin plugin;
@@ -73,7 +71,7 @@ public class BedListener implements Listener{
 			return false;
 		}
 		// Bed still here?
-		return BED_BLOCKS.contains(bed.getLocation().getBlock().getType());
+		return Material.BED_BLOCK.equals(bed.getLocation().getBlock().getType());
 	}
 
 	@EventHandler
@@ -123,6 +121,16 @@ public class BedListener implements Listener{
 		}
 	}
 
+	@EventHandler
+	public void onBlockBreak(BlockBreakEvent event){
+		if(Material.BED_BLOCK.equals(event.getBlock().getType())){
+			//Remove all beds that used this location
+			Location location = event.getBlock().getLocation();
+			List<PlayerBed> affectedBeds = dao.findByLocation(location);
+			dao.remove(affectedBeds);
+		}
+	}
+
 	private static final boolean isAlreadySet(PlayerBed bed, Location location){
 		if(bed==null){
 			return false;
@@ -137,7 +145,7 @@ public class BedListener implements Listener{
 		if (!event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
 			return false;
 		}
-		return BED_BLOCKS.contains(event.getClickedBlock().getType());
+		return Material.BED_BLOCK.equals(event.getClickedBlock().getType());
 	}
 
 	private static final long OFFSET = 1000; // 1second
