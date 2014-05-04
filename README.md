@@ -5,6 +5,8 @@ BedNerf
 
 **License:** [GNU General Public License, version 3 (GPL-3.0)](http://opensource.org/licenses/gpl-3.0)
 
+**Build Server:** [Jenkins](https://k42.ch/jenkins/job/BedNerf/)
+
 BedNerf is a plugin for Minecraft Bukkit Servers, it tries to nerf exploits that are possible with Vanilla Minecraft beds. A Bed can only be used as spawn after some time has passed. After a respawn at a bed you will again have to wait for a cooldown.
 
 This helps prevent massive suicide operations and other exploits.
