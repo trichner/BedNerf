@@ -149,7 +149,7 @@ public class BedListener implements Listener{
 		Bukkit.getScheduler().runTaskLater(plugin, new Runnable() {
 			@Override
 			public void run() {
-				Player onlineplayer = player.getPlayer();
+				Player onlineplayer = plugin.getServer().getPlayer(player.getUniqueId());
 				if (onlineplayer != null) { // player even online?
 					PlayerBed bed = dao.findByUUID(player.getUniqueId().toString());
 					if (isReady(bed)) {
