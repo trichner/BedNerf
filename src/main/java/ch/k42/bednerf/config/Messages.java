@@ -16,8 +16,8 @@ public class Messages {
 	private String deathMessageNoBed;
 
 	public Messages(String spawnSetMessage, String spawnNotSetMessage, String bedClickMessage,
-			String bedClickMessageRep, String respawnMessageBed, String respawnMessageNoBed,
-			String deathMessageBed, String deathMessageNoBed) {
+			String bedClickMessageRep, String respawnMessageBed, String respawnMessageNoBed, String deathMessageBed,
+			String deathMessageNoBed) {
 		this.spawnSetMessage = spawnSetMessage;
 		this.spawnNotSetMessage = spawnNotSetMessage;
 		this.bedClickMessage = bedClickMessage;
@@ -33,7 +33,7 @@ public class Messages {
 	}
 
 	public String getRespawnMessageBed(long millis) {
-		return String.format(respawnMessageBed,toMinutes(millis));
+		return String.format(respawnMessageBed, toMinutes(millis));
 	}
 
 	public String getRespawnMessageNoBed() {

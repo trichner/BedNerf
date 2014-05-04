@@ -42,8 +42,7 @@ public class BedNerfConfig {
 
 		MessagesBuilder builder = new MessagesBuilder().setBedClickMessage(readMessage(KEY_MSGCLICKBED))
 				.setBedClickMessageRep(readMessage(KEY_MSGCLICKBEDREP))
-				.setDeathMessageBed(readMessage(KEY_MSGDEATHBED))
-				.setDeathMessageNoBed(readMessage(KEY_MSGDEATHNOBED))
+				.setDeathMessageBed(readMessage(KEY_MSGDEATHBED)).setDeathMessageNoBed(readMessage(KEY_MSGDEATHNOBED))
 				.setRespawnMessageBed(readMessage(KEY_MSGSPAWNBED))
 				.setRespawnMessageNoBed(readMessage(KEY_MSGSPAWNNOBED))
 				.setSpawnNotSetMessage(readMessage(KEY_MSGSPAWNNOTSET))
@@ -51,11 +50,11 @@ public class BedNerfConfig {
 		messages = builder.createMessages();
 	}
 
-	private String readMessage(String key){
+	private String readMessage(String key) {
 		String msg = config.getString(key);
-		if(msg!=null) {
+		if (msg != null) {
 			return ChatColor.translateAlternateColorCodes('&', msg);
-		}else {
+		} else {
 			return null;
 		}
 	}

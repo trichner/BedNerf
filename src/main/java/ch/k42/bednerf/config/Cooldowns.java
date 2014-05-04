@@ -2,7 +2,7 @@ package ch.k42.bednerf.config;
 
 /**
  * Created on 04.05.14.
- *
+ * 
  * @author trichner
  */
 public class Cooldowns {

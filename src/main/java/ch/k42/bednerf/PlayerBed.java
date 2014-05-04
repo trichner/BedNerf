@@ -10,32 +10,32 @@ import org.bukkit.Location;
 
 /**
  * Created on 03.05.14.
- *
+ * 
  * @author trichner
  */
 @Entity
-@Table(name="PLAYER_BEDS")
+@Table(name = "PLAYER_BEDS")
 public class PlayerBed {
 
 	@Id
 	Integer id;
 
-	@Column(name="UUID")
+	@Column(name = "UUID")
 	String UUID;
 
-	@Column(name="X")
+	@Column(name = "X")
 	int x;
 
-	@Column(name="Y")
+	@Column(name = "Y")
 	int y;
 
-	@Column(name="Z")
+	@Column(name = "Z")
 	int z;
 
-	@Column(name="WORLD")
+	@Column(name = "WORLD")
 	String world;
 
-	@Column(name="READY_TIME")
+	@Column(name = "READY_TIME")
 	long readyTimestamp;
 
 	public String getUUID() {
@@ -47,7 +47,7 @@ public class PlayerBed {
 	}
 
 	public Location getLocation() {
-		return new Location(Bukkit.getWorld(world),x,y,z);
+		return new Location(Bukkit.getWorld(world), x, y, z);
 	}
 
 	public void setLocation(Location location) {

@@ -24,7 +24,7 @@ import ch.k42.bednerf.config.Messages;
  * 
  * @author trichner
  */
-public class BedListener implements Listener{
+public class BedListener implements Listener {
 
 	private static final int TICKRATE = 20;
 
@@ -35,8 +35,7 @@ public class BedListener implements Listener{
 
 	private Cooldowns cooldowns;
 
-	public BedListener(PlayerBedDAO dao, BedNerfPlugin plugin, Messages messages,
-			Cooldowns cooldowns) {
+	public BedListener(PlayerBedDAO dao, BedNerfPlugin plugin, Messages messages, Cooldowns cooldowns) {
 		this.dao = dao;
 		this.plugin = plugin;
 		this.messages = messages;
@@ -83,7 +82,7 @@ public class BedListener implements Listener{
 			bed.setReadyTimestamp(getNow() + cooldowns.getConsecutiveCooldown());
 			dao.persist(bed);
 			sendMessage(player, messages.getRespawnMessageBed(cooldowns.getConsecutiveCooldown()));
-			notifyPlayer(player,cooldowns.getConsecutiveCooldown());
+			notifyPlayer(player, cooldowns.getConsecutiveCooldown());
 		} else {
 			// Randomspawn
 			sendMessage(player, messages.getRespawnMessageNoBed());
@@ -108,13 +107,13 @@ public class BedListener implements Listener{
 				sendMessage(player, messages.getBedClickMessageRep());
 			} else {
 				if (bed == null) { // player has no bed yet
-					bed = new PlayerBed(); //dao.create();
+					bed = new PlayerBed(); // dao.create();
 					bed.setUUID(player.getUniqueId().toString());
 				}
 				bed.setLocation(location);
 				bed.setReadyTimestamp(getNow() + cooldowns.getFirstCooldown());
 				dao.persist(bed);
-				sendMessage(player,messages.getBedClickMessage(cooldowns.getFirstCooldown()));
+				sendMessage(player, messages.getBedClickMessage(cooldowns.getFirstCooldown()));
 				notifyPlayer(player, cooldowns.getFirstCooldown());
 			}
 			event.setUseInteractedBlock(Event.Result.DENY);
@@ -122,17 +121,22 @@ public class BedListener implements Listener{
 	}
 
 	@EventHandler
-	public void onBlockBreak(BlockBreakEvent event){
-		if(Material.BED_BLOCK.equals(event.getBlock().getType())){
-			//Remove all beds that used this location
-			Location location = event.getBlock().getLocation();
-			List<PlayerBed> affectedBeds = dao.findByLocation(location);
-			dao.remove(affectedBeds);
+	public void onBlockBreak(BlockBreakEvent event) {
+		if (Material.BED_BLOCK.equals(event.getBlock().getType())) {
+			// Remove all beds that used this location
+			final Location location = event.getBlock().getLocation();
+			// DB access might take some time and we don't need Bukkit API for this -> Async
+			Bukkit.getScheduler().runTaskAsynchronously(plugin,new Runnable() {
+				@Override public void run() {
+					List<PlayerBed> affectedBeds = dao.findByLocation(location);
+					dao.remove(affectedBeds);
+				}
+			});
 		}
 	}
 
-	private static final boolean isAlreadySet(PlayerBed bed, Location location){
-		if(bed==null){
+	private static final boolean isAlreadySet(PlayerBed bed, Location location) {
+		if (bed == null) {
 			return false;
 		}
 		return location.equals(bed.getLocation());
@@ -163,15 +167,15 @@ public class BedListener implements Listener{
 					if (isReady(bed)) {
 						sendMessage(onlineplayer, messages.getSpawnSetMessage());
 					} else {
-						//sendMessage(onlineplayer,messages.getSpawnNotSetMessage());
+						// sendMessage(onlineplayer,messages.getSpawnNotSetMessage());
 					}
 				}
 			}
 		}, millis * TICKRATE / (1000));
 	}
 
-	private static final void sendMessage(Player player,String message){
-		if(message!=null){
+	private static final void sendMessage(Player player, String message) {
+		if (message != null) {
 			player.sendMessage(message);
 		}
 	}

@@ -51,7 +51,7 @@ public class MessagesBuilder {
 	}
 
 	public Messages createMessages() {
-		return new Messages(spawnSetMessage, spawnNotSetMessage, bedClickMessage, bedClickMessageRep, respawnMessageBed,
-				respawnMessageNoBed, deathMessageBed, deathMessageNoBed);
+		return new Messages(spawnSetMessage, spawnNotSetMessage, bedClickMessage, bedClickMessageRep,
+				respawnMessageBed, respawnMessageNoBed, deathMessageBed, deathMessageNoBed);
 	}
 }
