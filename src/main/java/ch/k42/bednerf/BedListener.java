@@ -52,10 +52,10 @@ public class BedListener implements Listener {
 		if (isReady(bed)) {
 			// Bed is ready, set spawn
 			player.setBedSpawnLocation(bed.getLocation());
-			if(player.getBedSpawnLocation()==null){
+			if (player.getBedSpawnLocation() == null) {
 				// wont delete bed, we'll stay fair
-				sendMessage(player,messages.getDeathMessageBedObstructed());
-			}else{
+				sendMessage(player, messages.getDeathMessageBedObstructed());
+			} else {
 				// spawn at bed
 				sendMessage(player, messages.getDeathMessageBed());
 			}
@@ -132,8 +132,9 @@ public class BedListener implements Listener {
 			// Remove all beds that used this location
 			final Location location = event.getBlock().getLocation();
 			// DB access might take some time and we don't need Bukkit API for this -> Async
-			Bukkit.getScheduler().runTaskAsynchronously(plugin,new Runnable() {
-				@Override public void run() {
+			Bukkit.getScheduler().runTaskAsynchronously(plugin, new Runnable() {
+				@Override
+				public void run() {
 					List<PlayerBed> affectedBeds = dao.findByLocation(location);
 					dao.remove(affectedBeds);
 				}
@@ -141,14 +142,14 @@ public class BedListener implements Listener {
 		}
 	}
 
-	private static final boolean isAlreadySet(PlayerBed bed, Location location) {
+	private static boolean isAlreadySet(PlayerBed bed, Location location) {
 		if (bed == null) {
 			return false;
 		}
 		return location.equals(bed.getLocation());
 	}
 
-	private static final boolean isBedRightClick(PlayerInteractEvent event) {
+	private static boolean isBedRightClick(PlayerInteractEvent event) {
 		if (!event.hasBlock()) {
 			return false;
 		}
@@ -180,13 +181,13 @@ public class BedListener implements Listener {
 		}, millis * TICKRATE / (1000));
 	}
 
-	private static final void sendMessage(Player player, String message) {
+	private static void sendMessage(Player player, String message) {
 		if (message != null) {
 			player.sendMessage(message);
 		}
 	}
 
-	private static final long getNow() {
+	private static long getNow() {
 		return System.currentTimeMillis();
 	}
 }
