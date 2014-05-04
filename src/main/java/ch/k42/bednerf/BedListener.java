@@ -12,6 +12,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockDamageEvent;
+import org.bukkit.event.block.BlockEvent;
+import org.bukkit.event.block.BlockFadeEvent;
+import org.bukkit.event.block.BlockPistonExtendEvent;
+import org.bukkit.event.block.BlockPistonRetractEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
@@ -127,7 +132,31 @@ public class BedListener implements Listener {
 	}
 
 	@EventHandler
-	public void onBlockBreak(BlockBreakEvent event) {
+	public void onBlockEvent(BlockBreakEvent event) {
+		checkBlock(event);
+	}
+
+	@EventHandler
+	public void onBlockEvent(BlockDamageEvent event) {
+		checkBlock(event);
+	}
+
+	@EventHandler
+	public void onBlockEvent(BlockPistonRetractEvent event) {
+		checkBlock(event);
+	}
+
+	@EventHandler
+	public void onBlockEvent(BlockPistonExtendEvent event) {
+		checkBlock(event);
+	}
+
+	@EventHandler
+	public void onBlockEvent(BlockFadeEvent event) {
+		checkBlock(event);
+	}
+	
+	private void checkBlock(BlockEvent event){
 		if (Material.BED_BLOCK.equals(event.getBlock().getType())) {
 			// Remove all beds that used this location
 			final Location location = event.getBlock().getLocation();
