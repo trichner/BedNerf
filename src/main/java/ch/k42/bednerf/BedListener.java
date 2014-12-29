@@ -125,7 +125,10 @@ public class BedListener implements Listener {
 				bed.setLocation(location);
 				bed.setReadyTimestamp(getNow() + cooldowns.getFirstCooldown());
 				dao.persist(bed);
-				sendMessage(player, messages.getBedClickMessage(cooldowns.getFirstCooldown()));
+				if(cooldowns.getFirstCooldown()>0) {
+					// only send if there is a cooldown
+					sendMessage(player, messages.getBedClickMessage(cooldowns.getFirstCooldown()));
+				}
 				notifyPlayer(player, cooldowns.getFirstCooldown());
 			}
 			event.setUseInteractedBlock(Event.Result.DENY);
@@ -230,7 +233,7 @@ public class BedListener implements Listener {
 	}
 
 	private static void sendMessage(Player player, String message) {
-		if (message != null) {
+		if (message != null && !("".equals(message))) {
 			player.sendMessage(message);
 		}
 	}
