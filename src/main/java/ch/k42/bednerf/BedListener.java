@@ -1,11 +1,12 @@
 package ch.k42.bednerf;
 
-import java.util.List;
-
+import ch.k42.bednerf.config.Cooldowns;
+import ch.k42.bednerf.config.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
@@ -20,9 +21,10 @@ import org.bukkit.event.block.BlockPistonRetractEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
+import org.bukkit.material.Bed;
+import org.bukkit.material.MaterialData;
 
-import ch.k42.bednerf.config.Cooldowns;
-import ch.k42.bednerf.config.Messages;
+import java.util.List;
 
 /**
  * Created on 03.05.14.
@@ -113,6 +115,7 @@ public class BedListener implements Listener {
 			PlayerBed bed = dao.findByUUID(player.getUniqueId().toString());
 			// location of bed
 			Location location = event.getClickedBlock().getLocation();
+			location = getBedHead(location);
 			// already same bed set?
 			if (isAlreadySet(bed, location)) {
 				sendMessage(player, messages.getBedClickMessageRep());
@@ -176,6 +179,24 @@ public class BedListener implements Listener {
 			return false;
 		}
 		return location.equals(bed.getLocation());
+	}
+
+	private static Location getBedHead(Location location) {
+		MaterialData data = location.getBlock().getState().getData();
+		Location head = null;
+		// is it even a bed?
+		if(data instanceof Bed){
+			Bed bed = ((Bed) data);
+			// is it already the head?
+			if(bed.isHeadOfBed()){
+				head = location;
+			}else {
+				BlockFace face = bed.getFacing();
+				head = location.add(face.getModX(),face.getModY(),face.getModZ());
+			}
+		}
+
+		return  head;
 	}
 
 	private static boolean isBedRightClick(PlayerInteractEvent event) {
