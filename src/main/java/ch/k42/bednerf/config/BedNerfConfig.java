@@ -16,8 +16,6 @@ public class BedNerfConfig {
 	private static final String MSGS = "messages.";
 	private static final String KEY_MSGSPAWNSET = MSGS.concat("spawnSetMessage");
 
-	private static final String KEY_MSGDEATHBED = MSGS.concat("deathMessageBed");
-	private static final String KEY_MSGDEATHNOBED = MSGS.concat("deathMessageNoBed");
 	private static final String KEY_MSGDEATHBEDOB = MSGS.concat("deathMessageBedObstructed");
 
 	private static final String KEY_MSGSPAWNBED = MSGS.concat("respawnMessageBed");
@@ -43,8 +41,6 @@ public class BedNerfConfig {
 		MessagesBuilder builder = new MessagesBuilder()
 				.setBedClickMessage(readMessage(KEY_MSGCLICKBED))
 				.setBedClickMessageRep(readMessage(KEY_MSGCLICKBEDREP))
-				.setDeathMessageBed(readMessage(KEY_MSGDEATHBED))
-				.setDeathMessageNoBed(readMessage(KEY_MSGDEATHNOBED))
 				.setRespawnMessageBed(readMessage(KEY_MSGSPAWNBED))
 				.setRespawnMessageNoBed(readMessage(KEY_MSGSPAWNNOBED))
 				.setSpawnSetMessage(readMessage(KEY_MSGSPAWNSET))

@@ -66,7 +66,6 @@ public class BedListener implements Listener {
 				// spawn at bed, we display a message on spawn
 			}
 		} else {
-			sendMessage(player, messages.getDeathMessageNoBed());
 			player.setBedSpawnLocation(null);
 			dao.remove(bed);
 		}

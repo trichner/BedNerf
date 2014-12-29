@@ -6,8 +6,6 @@ public class MessagesBuilder {
 	private String bedClickMessageRep;
 	private String respawnMessageBed;
 	private String respawnMessageNoBed;
-	private String deathMessageBed;
-	private String deathMessageNoBed;
 	private String deathMessageBedObstructed;
 
 	public MessagesBuilder setSpawnSetMessage(String spawnSetMessage) {
@@ -35,16 +33,6 @@ public class MessagesBuilder {
 		return this;
 	}
 
-	public MessagesBuilder setDeathMessageBed(String deathMessageBed) {
-		this.deathMessageBed = deathMessageBed;
-		return this;
-	}
-
-	public MessagesBuilder setDeathMessageNoBed(String deathMessageNoBed) {
-		this.deathMessageNoBed = deathMessageNoBed;
-		return this;
-	}
-
 	public MessagesBuilder setDeathMessageBedObstructed(String deathMessageBedObstructed) {
 		this.deathMessageBedObstructed = deathMessageBedObstructed;
 		return this;
@@ -52,6 +40,6 @@ public class MessagesBuilder {
 
 	public Messages createMessages() {
 		return new Messages(spawnSetMessage, bedClickMessage, bedClickMessageRep, respawnMessageBed,
-				respawnMessageNoBed, deathMessageBed, deathMessageNoBed, deathMessageBedObstructed);
+				respawnMessageNoBed, deathMessageBedObstructed);
 	}
 }

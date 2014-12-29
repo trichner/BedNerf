@@ -11,20 +11,15 @@ public class Messages {
 	private String bedClickMessageRep;
 	private String respawnMessageBed;
 	private String respawnMessageNoBed;
-	private String deathMessageBed;
-	private String deathMessageNoBed;
 	private String deathMessageBedObstructed;
 
 	public Messages(String spawnSetMessage, String bedClickMessage,
-			String bedClickMessageRep, String respawnMessageBed, String respawnMessageNoBed,
-			String deathMessageBed, String deathMessageNoBed, String deathMessageBedObstructed) {
+			String bedClickMessageRep, String respawnMessageBed, String respawnMessageNoBed, String deathMessageBedObstructed) {
 		this.spawnSetMessage = spawnSetMessage;
 		this.bedClickMessage = bedClickMessage;
 		this.bedClickMessageRep = bedClickMessageRep;
 		this.respawnMessageBed = respawnMessageBed;
 		this.respawnMessageNoBed = respawnMessageNoBed;
-		this.deathMessageBed = deathMessageBed;
-		this.deathMessageNoBed = deathMessageNoBed;
 		this.deathMessageBedObstructed = deathMessageBedObstructed;
 	}
 
@@ -38,14 +33,6 @@ public class Messages {
 
 	public String getRespawnMessageNoBed() {
 		return respawnMessageNoBed;
-	}
-
-	public String getDeathMessageBed() {
-		return deathMessageBed;
-	}
-
-	public String getDeathMessageNoBed() {
-		return deathMessageNoBed;
 	}
 
 	public String getSpawnSetMessage() {
