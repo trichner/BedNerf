@@ -15,7 +15,6 @@ public class BedNerfConfig {
 
 	private static final String MSGS = "messages.";
 	private static final String KEY_MSGSPAWNSET = MSGS.concat("spawnSetMessage");
-	private static final String KEY_MSGSPAWNNOTSET = MSGS.concat("spawnNotSetMessage");
 
 	private static final String KEY_MSGDEATHBED = MSGS.concat("deathMessageBed");
 	private static final String KEY_MSGDEATHNOBED = MSGS.concat("deathMessageNoBed");
