@@ -1,6 +1,5 @@
 
 messages:    #Use & for color codes
-     spawnNotSetMessage: "&7Your bed could not be set, is it still there?"
      spawnSetMessage: "&7Your spawn was set to your bed."
      # Use %d to insert time in minutes
      bedClickMessage: "&7Your spawn will be set to this bed in %d minutes  ... If it still exists then."

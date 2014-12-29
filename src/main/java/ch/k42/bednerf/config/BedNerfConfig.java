@@ -48,7 +48,6 @@ public class BedNerfConfig {
 				.setDeathMessageNoBed(readMessage(KEY_MSGDEATHNOBED))
 				.setRespawnMessageBed(readMessage(KEY_MSGSPAWNBED))
 				.setRespawnMessageNoBed(readMessage(KEY_MSGSPAWNNOBED))
-				.setSpawnNotSetMessage(readMessage(KEY_MSGSPAWNNOTSET))
 				.setSpawnSetMessage(readMessage(KEY_MSGSPAWNSET))
 				.setDeathMessageBedObstructed(readMessage(KEY_MSGDEATHBEDOB));
 

@@ -2,7 +2,6 @@ package ch.k42.bednerf.config;
 
 public class MessagesBuilder {
 	private String spawnSetMessage;
-	private String spawnNotSetMessage;
 	private String bedClickMessage;
 	private String bedClickMessageRep;
 	private String respawnMessageBed;
@@ -13,11 +12,6 @@ public class MessagesBuilder {
 
 	public MessagesBuilder setSpawnSetMessage(String spawnSetMessage) {
 		this.spawnSetMessage = spawnSetMessage;
-		return this;
-	}
-
-	public MessagesBuilder setSpawnNotSetMessage(String spawnNotSetMessage) {
-		this.spawnNotSetMessage = spawnNotSetMessage;
 		return this;
 	}
 
@@ -57,7 +51,7 @@ public class MessagesBuilder {
 	}
 
 	public Messages createMessages() {
-		return new Messages(spawnSetMessage, spawnNotSetMessage, bedClickMessage, bedClickMessageRep, respawnMessageBed,
+		return new Messages(spawnSetMessage, bedClickMessage, bedClickMessageRep, respawnMessageBed,
 				respawnMessageNoBed, deathMessageBed, deathMessageNoBed, deathMessageBedObstructed);
 	}
 }

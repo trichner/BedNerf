@@ -7,7 +7,6 @@ package ch.k42.bednerf.config;
  */
 public class Messages {
 	private String spawnSetMessage;
-	private String spawnNotSetMessage;
 	private String bedClickMessage;
 	private String bedClickMessageRep;
 	private String respawnMessageBed;
@@ -16,11 +15,10 @@ public class Messages {
 	private String deathMessageNoBed;
 	private String deathMessageBedObstructed;
 
-	public Messages(String spawnSetMessage, String spawnNotSetMessage, String bedClickMessage,
+	public Messages(String spawnSetMessage, String bedClickMessage,
 			String bedClickMessageRep, String respawnMessageBed, String respawnMessageNoBed,
 			String deathMessageBed, String deathMessageNoBed, String deathMessageBedObstructed) {
 		this.spawnSetMessage = spawnSetMessage;
-		this.spawnNotSetMessage = spawnNotSetMessage;
 		this.bedClickMessage = bedClickMessage;
 		this.bedClickMessageRep = bedClickMessageRep;
 		this.respawnMessageBed = respawnMessageBed;
@@ -32,10 +30,6 @@ public class Messages {
 
 	public String getDeathMessageBedObstructed() {
 		return deathMessageBedObstructed;
-	}
-
-	public String getSpawnNotSetMessage() {
-		return spawnNotSetMessage;
 	}
 
 	public String getRespawnMessageBed(long millis) {
