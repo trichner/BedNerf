@@ -88,7 +88,7 @@ public class BedListener implements Listener {
 	public void onPlayerSpawn(PlayerRespawnEvent event) {
 		Player player = event.getPlayer();
 		PlayerBed bed = dao.findByUUID(player.getUniqueId().toString());
-		if (bed != null) {
+		if (bed != null && player.getBedSpawnLocation() != null) {
 			// update cooldown
 			bed.setReadyTimestamp(getNow() + cooldowns.getConsecutiveCooldown());
 			dao.persist(bed);
