@@ -1,2 +1,6 @@
+# Intellij crap
 .idea/
 *.iml
+
+# Maven builds
+target/
