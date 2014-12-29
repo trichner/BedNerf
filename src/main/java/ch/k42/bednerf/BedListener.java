@@ -63,8 +63,7 @@ public class BedListener implements Listener {
 				// wont delete bed, we'll stay fair
 				sendMessage(player, messages.getDeathMessageBedObstructed());
 			} else {
-				// spawn at bed
-				sendMessage(player, messages.getDeathMessageBed());
+				// spawn at bed, we display a message on spawn
 			}
 		} else {
 			sendMessage(player, messages.getDeathMessageNoBed());

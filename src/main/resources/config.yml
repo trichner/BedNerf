@@ -5,7 +5,6 @@ messages:    #Use & for color codes
      # Use %d to insert time in minutes
      bedClickMessage: "&7Your spawn will be set to this bed in %d minutes  ... If it still exists then."
      bedClickMessageRep: "&7Your spawn is already set to this bed."
-     deathMessageBed: "&7You will wake up in your bed, was this all a dream?"
      deathMessageNoBed: "&7There was no bed ready for you."
      deathMessageBedObstructed: "&7You're bed was obstructed, clean up before you can wake up there."
      # Use %d to insert time in minutes
