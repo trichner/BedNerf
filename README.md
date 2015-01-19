@@ -25,3 +25,5 @@ For an example configuration see [Default Config](https://github.com/trichner/Be
 
 - spigot requires a 'ebean.properties' file, create an empty file named 'ebean.properties' in your spigot folder (where spigot.yml is) and the error should disappear.
 - you can view the contents of the database by opening BedNerf.db with sqlite3
+
+.
